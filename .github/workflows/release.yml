@@ -5,8 +5,7 @@ on:
     workflows: [Build]
     types: [completed]
     branches: [master]
-    tags:
-      - 'v*'
+    tags: ['v*']
 
 jobs:
   publish-release:
