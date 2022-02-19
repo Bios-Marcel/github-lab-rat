@@ -40,4 +40,4 @@ jobs:
           files: |
             scribblers-linux-x64
             scribblers-macos-x64
-            scribblers-windows-x64.exe
+            scribblers-x64.exe
