@@ -1,4 +1,4 @@
-name: build
+name: Build
 
 on: push
 
@@ -26,7 +26,7 @@ jobs:
         with:
           go-version: ${{ matrix.go-version }}
 
-      - name: Run tests and write coverprofile
+      - name: Run tests
         shell: bash
         run: |
           go test -race -covermode=atomic ./...
