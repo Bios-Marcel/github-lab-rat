@@ -1,0 +1,35 @@
+name: Publish release
+
+on:
+  workflow_run:
+    workflows: [build]
+    types: [completed]
+    branches: [master]
+    tags:
+      - 'v*'
+
+jobs:
+  publish-release:
+    steps:
+      - name: Download linux artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: scribblers-linux-x64
+
+      - name: Download macos artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: scribblers-macos-x64
+
+      - name: Download windows artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: scribblers-windows-x64.exe
+
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            scribblers-linux-x64
+            scribblers-macos-x64
+            scribblers-windows-x64.exe
