@@ -34,10 +34,10 @@ jobs:
       - name: Build artifact
         shell: bash
         run: |
-          go build -o {{ matrix.binary_name }} .
+          go build -o ${{ matrix.binary_name }} .
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v2
         with:
-          name: {{ matrix.binary_name }}
-          path: ./{{ matrix.binary_name }}
+          name: ${{ matrix.binary_name }}
+          path: ./${{ matrix.binary_name }}
