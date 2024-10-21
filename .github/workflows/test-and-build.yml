@@ -31,10 +31,3 @@ jobs:
           VERSION_A: ${{ github.head_ref }}
         run: |
           echo "$VERSION_A"
-          go build -o ${{ matrix.binary_name }} .
-
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: ${{ matrix.binary_name }}
-          path: ./${{ matrix.binary_name }}
