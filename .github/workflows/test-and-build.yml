@@ -16,7 +16,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Build artifact
         shell: bash
-        env:
-          VERSION: "$(git describe --tags --dirty)"
         run: |
-          echo "$VERSION"
+          echo " bla '$(git describe --tags --dirty)'"
