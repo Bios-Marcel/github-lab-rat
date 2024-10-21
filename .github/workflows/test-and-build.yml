@@ -27,7 +27,5 @@ jobs:
 
       - name: Build artifact
         shell: bash
-        env:
-          VERSION_A: ${{ github.head_ref }}
         run: |
-          echo "$VERSION_A"
+          echo "${{ github.head_ref }}"
