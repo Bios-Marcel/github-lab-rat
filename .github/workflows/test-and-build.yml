@@ -7,12 +7,8 @@ jobs:
     strategy:
       matrix:
         include:
-          - platform: windows-latest
-            binary_name: scribblers-x64.exe
           - platform: ubuntu-latest
             binary_name: scribblers-linux-x64
-          - platform: macos-latest
-            binary_name: scribblers-macos-x64
 
     runs-on: ${{ matrix.platform }}
 
@@ -31,7 +27,10 @@ jobs:
 
       - name: Build artifact
         shell: bash
+        env:
+          VERSION_A: ${{ github.head_ref }}
         run: |
+          echo "$VERSION_A"
           go build -o ${{ matrix.binary_name }} .
 
       - name: Upload build artifact
